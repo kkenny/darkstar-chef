@@ -6,7 +6,7 @@
 
 include_recipe 'yum-epel'
 
-packages = 'bash wget curl nmon'
+packages = %{bash wget curl nmon}
 
 packages.each do |pkg|
   package pkg do
