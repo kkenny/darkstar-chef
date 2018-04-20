@@ -1,5 +1,5 @@
 name 'haproxy'
-maintainer 'The Authors'
+maintainer 'Kameron Kenny'
 maintainer_email 'you@example.com'
 license 'All Rights Reserved'
 description 'Installs/Configures haproxy'

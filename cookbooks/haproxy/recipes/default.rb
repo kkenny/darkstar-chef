@@ -6,10 +6,15 @@
 
 package 'haproxy'
 
+service 'haproxy' do
+  action [:start, :enable]
+end
+
 template '/etc/haproxy/haproxy.conf' do
   source 'haproxy.conf.erb'
   owner 'root'
   group 'root'
   mode 0644
   action :create
+  notifies :restart, 'service[haproxy]', :immediately
 end
