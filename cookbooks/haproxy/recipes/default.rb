@@ -10,8 +10,8 @@ service 'haproxy' do
   action [:start, :enable]
 end
 
-template '/etc/haproxy/haproxy.conf' do
-  source 'haproxy.conf.erb'
+template '/etc/haproxy/haproxy.cfg' do
+  source 'haproxy.cfg.erb'
   owner 'root'
   group 'root'
   mode 0644
