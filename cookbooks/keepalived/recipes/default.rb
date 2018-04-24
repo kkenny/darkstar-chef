@@ -4,8 +4,8 @@
 #
 # Copyright:: 2018, The Authors, All Rights Reserved.
 
-execute "systemctl" do
-  command 'systemctl -p'
+execute "sysctl" do
+  command 'sysctl -p'
   action :nothing
 end
 
@@ -13,7 +13,7 @@ execute "add_nonlocal_bind" do
   command 'echo "net.ipv4.ip_nonlocal_bind=1" >> /etc/sysctl.conf'
   action :run
   not_if 'grep "net.ipv4.ip_nonlocal_bind=1" /etc/sysctl.conf'
-  notifies :run, 'execute[systemctl]', :immediately
+  notifies :run, 'execute[sysctl]', :immediately
 end
 
 package 'keepalived'
