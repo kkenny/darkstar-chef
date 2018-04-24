@@ -5,3 +5,4 @@ metadata
 
 cookbook "keepalived", path: "../keepalived"
 cookbook "haproxy", path: "../haproxy"
+cookbook "base", path: "../base"
