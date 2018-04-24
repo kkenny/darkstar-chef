@@ -4,3 +4,5 @@ source 'https://supermarket.chef.io'
 metadata
 
 cookbook "keepalived", path: "../keepalived"
+cookbook "haproxy", path: "../haproxy"
+cookbook "default-packages", path: "../default-packages"
