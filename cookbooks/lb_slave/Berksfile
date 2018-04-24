@@ -6,3 +6,4 @@ metadata
 cookbook "keepalived", path: "../keepalived"
 cookbook "haproxy", path: "../haproxy"
 cookbook "base", path: "../base"
+cookbook 'chef-client', '~> 10.0.3'
