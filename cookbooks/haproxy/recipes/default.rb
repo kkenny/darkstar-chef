@@ -10,6 +10,12 @@ service 'haproxy' do
   action [:start, :enable]
 end
 
+webservers = search(:node 'recipe:web-server', :filter_results => {
+  'name' => [ 'name' ],
+  'ip' => [ 'ipaddress' ]
+})
+
+
 template '/etc/haproxy/haproxy.cfg' do
   source 'haproxy.cfg.erb'
   owner 'root'
@@ -17,4 +23,5 @@ template '/etc/haproxy/haproxy.cfg' do
   mode 0644
   action :create
   notifies :restart, 'service[haproxy]', :immediately
+  variables(:webservers => webservers)
 end

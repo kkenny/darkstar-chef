@@ -1,5 +1,3 @@
-###TODO: turn static content into attributes
-
 global
     # to have these messages end up in /var/log/haproxy.log you will
     # need to:
@@ -49,8 +47,7 @@ frontend  main *:80
 
 backend app
     balance     roundrobin
-    server  web1 10.0.0.6:80 check
-    server  web2 10.0.0.7:80 check
-    server  web3 10.0.0.8:80 check
-
+<% @webservers.each do |name, ip| -%>
+    server <%= name %> <%= ip %>:80 check
+<% end -%>
 
