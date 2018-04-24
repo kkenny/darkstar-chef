@@ -1,0 +1,7 @@
+# frozen_string_literal: true
+source 'https://supermarket.chef.io'
+
+metadata
+
+cookbook 'chef-client', '~> 10.0.3'
+cookbook 'default-packages', path: '../default-packages'
