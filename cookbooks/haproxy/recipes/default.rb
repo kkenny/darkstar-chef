@@ -11,8 +11,8 @@ service 'haproxy' do
 end
 
 webservers = search(:node 'recipe:web-server', :filter_results => {
-  'name' => [ 'name' ],
-  'ip' => [ 'ipaddress' ]
+  'name' => ['name'],
+  'ip' => ['ipaddress']
 })
 
 
