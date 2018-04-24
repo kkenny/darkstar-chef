@@ -23,5 +23,5 @@ template '/etc/haproxy/haproxy.cfg' do
   mode 0644
   action :create
   notifies :restart, 'service[haproxy]', :immediately
-  variables(:webservers => webservers)
+  variables(webservers: webservers)
 end
