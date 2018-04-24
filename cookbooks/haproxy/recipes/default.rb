@@ -10,7 +10,7 @@ service 'haproxy' do
   action [:start, :enable]
 end
 
-webservers = search(:node 'recipe:web-server', :filter_results => {
+webservers = search(:node, 'recipe:web-server', :filter_results => {
   'name' => ['name'],
   'ip' => ['ipaddress']
 })
