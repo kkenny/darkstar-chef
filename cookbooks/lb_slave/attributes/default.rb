@@ -1,0 +1,5 @@
+default['keepalived']['default_state']	= "SLAVE"
+default['keepalived']['interface']	= "eth1"
+default['keepalived']['virtual_router_id']  = "51"
+default['keepalived']['priority']	    = "100"
+default['keepalived']['vip']		    = "10.0.0.50"
