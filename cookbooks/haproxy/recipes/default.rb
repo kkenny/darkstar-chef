@@ -10,11 +10,7 @@ service 'haproxy' do
   action [:start, :enable]
 end
 
-webservers = search(:node, 'recipe:web-server', :filter_results => {
-  'name' => ['name'],
-  'ip' => ['ipaddress']
-})
-
+webservers = search(:node, 'recipe:web-server')
 
 template '/etc/haproxy/haproxy.cfg' do
   source 'haproxy.cfg.erb'
