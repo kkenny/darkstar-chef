@@ -48,6 +48,6 @@ frontend  main *:80
 backend app
     balance     roundrobin
 <% @webservers.each do |webserver| -%>
-    server <%= webserver['name'] %> <%= webserver['ipaddress'] %>:80 check
+    server <%= webserver['name'] %> <%= webserver['network']['interfaces']['eth1']['addresses'].keys[1] %>:80 check
 <% end -%>
 
