@@ -1,4 +1,4 @@
-default['jekyll']['deploy_directory']	= '/var/www/html/thelinux.pro'
+default['jekyll']['deploy_directory']	= '/var/www/thelinux.pro'
 default['jekyll']['repository']		= 'https://github.com/kkenny/thelinux_pro.git'
 default['jekyll']['user']		= 'root'
 default['jekyll']['group']		= 'root'
