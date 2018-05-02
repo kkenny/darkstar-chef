@@ -4,7 +4,7 @@ maintainer_email 'you@example.com'
 license 'All Rights Reserved'
 description 'Installs/Configures thelinux_pro_blog'
 long_description 'Installs/Configures thelinux_pro_blog'
-version '0.1.0'
+version '0.1.2'
 chef_version '>= 12.14' if respond_to?(:chef_version)
 
 depends 'jekyll'
