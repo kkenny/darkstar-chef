@@ -3,7 +3,7 @@ source 'https://supermarket.chef.io'
 
 metadata
 
-cookbook 'jekyll'
+cookbook 'jekyll', git: 'https://github.com/kkenny/chef-cookbook_jekyll.git'
 cookbook 'apache2'
 cookbook 'rbenv'
 cookbook "base", path: "../base"
