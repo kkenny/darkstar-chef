@@ -10,7 +10,7 @@ service 'haproxy' do
   action [:start, :enable]
 end
 
-webservers = search(:node, 'recipe:web-server')
+webservers = search(:node, 'tags:web-server')
 
 template '/etc/haproxy/haproxy.cfg' do
   source 'haproxy.cfg.erb'
