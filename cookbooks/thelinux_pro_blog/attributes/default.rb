@@ -5,3 +5,4 @@ default['jekyll']['group']		= 'root'
 default['jekyll']['domain_name']	= 'thelinux.pro'
 default['jekyll']['options']		= ['--detach']
 default['jekyll']['packages']		= ['git', 'rubygem-bundler', 'ruby-devel', 'gcc' ]
+default['jekyll']['command']		= '/usr/local/bin/jekyll'
