@@ -1,0 +1,11 @@
+# frozen_string_literal: true
+source 'https://supermarket.chef.io'
+
+metadata
+
+cookbook 'jekyll'
+cookbook 'apache2'
+cookbook 'rbenv'
+cookbook "base", path: "../base"
+cookbook "default-packages", path: "../default-packages"
+cookbook 'chef-client', '~> 10.0.3'
