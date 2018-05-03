@@ -39,7 +39,7 @@ defaults
     timeout client          1m
     timeout server          1m
     timeout http-keep-alive 10s
-    timeout check           10s
+    timeout check           2s
     maxconn                 3000
 
 frontend  main *:80
@@ -48,6 +48,6 @@ frontend  main *:80
 backend app
     balance     roundrobin
 <% @webservers.each do |webserver| -%>
-    server <%= webserver['name'] %> <%= webserver['network']['interfaces']['eth1']['addresses'].keys[1] %>:4000 check
+    server <%= webserver['name'] %> <%= webserver['network']['interfaces']['eth1']['addresses'].keys[1] %>:80 check
 <% end -%>
 
