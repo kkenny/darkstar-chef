@@ -5,4 +5,4 @@ default['jekyll']['group']		= 'root'
 default['jekyll']['domain_name']	= 'thelinux.pro'
 default['jekyll']['packages']		= ['git', 'rubygem-bundler', 'ruby-devel', 'gcc' ]
 default['jekyll']['command']		= '/usr/local/bin/jekyll'
-default['jekyll']['options']		= ['serve', '--detach' '--port 80' '--host 0.0.0.0']
+default['jekyll']['options']		= ['serve', '--detach', '--port 80', '--host 0.0.0.0']
