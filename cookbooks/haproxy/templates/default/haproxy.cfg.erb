@@ -42,6 +42,15 @@ defaults
     timeout check           2s
     maxconn                 3000
 
+listen stats <%= webserver['network']['interfaces']['eth1']['addresses'].keys[1] %>:8080
+  mode                  http
+  log                   global
+  maxconn               10
+  stats                 enable
+  stats refresh 15
+  stats show-node
+  stats uri /haproxy?stats
+
 frontend  main *:80
     default_backend             app
 
