@@ -10,7 +10,7 @@ include_recipe 'base'
 include_recipe 'jekyll'
 
 file "#{node['jekyll']['deploy_directory']}/_site/host.txt" do
-  contents node['name']
+  content node['name']
   owner 'root'
   group 'root'
   mode 0755
