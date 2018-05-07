@@ -8,3 +8,11 @@ tag('web-server')
 
 include_recipe 'base'
 include_recipe 'jekyll'
+
+file "#{node['jekyll']['deploy_directory']}/_site/host.txt" do
+  contents node['name']
+  owner 'root'
+  group 'root'
+  mode 0755
+  action :create
+end
