@@ -23,8 +23,8 @@ execute 'pulp-gen-key-pair' do
   action :run
 end
 
-execute 'pulp-gen-ca-cert' do
-  command 'pulp-gen-ca-cert'
+execute 'pulp-gen-ca-certificate' do
+  command 'pulp-gen-ca-certificate'
   creates '/etc/pki/pulp/ca.crt'
   action :run
 end
