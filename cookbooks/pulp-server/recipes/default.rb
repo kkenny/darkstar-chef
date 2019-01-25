@@ -29,6 +29,20 @@ execute 'pulp-gen-ca-certificate' do
   action :run
 end
 
+%w(mongod qpidd httpd pulp_workers pulp_celerybeat pulp_resource_manager).each do |svc|
+  service svc do
+    action [ :enable, :start ]
+  end
+end
+
+template '/etc/pulp/admin/conf.d/server.conf' do
+  source 'pulp-admin-server.conf.erb'
+  owner 'root'
+  group 'root'
+  mode 0644
+  action :create
+end
+
 execute 'pulp-manage-db' do
   command 'pulp-manage-db'
   creates '/etc/pulp-db-managed'
@@ -42,20 +56,6 @@ file '/etc/pulp-db-managed' do
   group 'root'
   mode 0444
   action :nothing
-end
-
-%w(mongod qpidd httpd pulp_workers pulp_celerybeat pulp_resource_manager).each do |svc|
-  service svc do
-    action [ :enable, :start ]
-  end
-end
-
-template '/etc/pulp/admin/conf.d/server.conf' do
-  source 'pulp-admin-server.conf.erb'
-  owner 'root'
-  group 'root'
-  mode 0644
-  action :create
 end
 
 execute 'pulp-admin-login' do
