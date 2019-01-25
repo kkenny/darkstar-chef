@@ -76,7 +76,7 @@ end
 repos = data_bag('pulp_repos')
 
 repos.each do |repo|
-  bag = data_bag_item(repos, repo)
+  bag = data_bag_item('pulp_repos', repo)
 
   execute 'create_repo' do
     command "pulp-admin rpm repo create --repo-id #{bag['id']} --display-name #{bag['display_name']} --description \"#{bag['description']}\" --feed #{bag['feed']} --serve-http #{bag['serve_http'].to_string} --serve-https #{bag['serve_https'].to_string}"
