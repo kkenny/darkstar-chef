@@ -29,7 +29,7 @@ execute 'pulp-gen-ca-certificate' do
   action :run
 end
 
-%w(mongod qpidd httpd pulp_workers pulp_celerybeat pulp_resource_manager).each do |svc|
+%w(mongod qpidd httpd ).each do |svc|
   service svc do
     action [ :enable, :start ]
   end
@@ -50,6 +50,14 @@ execute 'pulp-manage-db' do
   action :run
   notifies :create, 'file[/etc/pulp-db-managed]', :immediately
 end
+
+%w(pulp_workers pulp_celerybeat pulp_resource_manager).each do |svc|
+  service svc do
+    action :nothing
+    subscribes :start, 'execute[pulp-manage-db]', :immediately
+  end
+end
+
 
 file '/etc/pulp-db-managed' do
   owner 'root'
