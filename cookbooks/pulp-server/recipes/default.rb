@@ -17,13 +17,6 @@ end
   package pkg
 end
 
-execute 'something' do
-  command 'this/that'
-  creates '/path/to/file'
-  action :run
-  user 'root'
-end
-
 execute 'pulp-gen-key-pair' do
   command 'pulp-gen-key-pair'
   creates '/etc/pki/pulp/rsa.key'
