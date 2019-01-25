@@ -1,8 +1,8 @@
 {
-  "id": 'centos-7-base-os-library',
-  "display_name": 'CentOS 7 Base OS - Library',
-  "description": 'Packages for CentOS 7 Base OS - Library',
-  "feed": 'http://mirror.centos.org/centos/7/os/x86_64',
+  "id": "centos-7-base-os-library",
+  "display_name": "CentOS 7 Base OS - Library",
+  "description": "Packages for CentOS 7 Base OS - Library",
+  "feed": "http://mirror.centos.org/centos/7/os/x86_64",
   "serve_http": true,
   "serve_https": true,
   "enabled": true
