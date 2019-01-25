@@ -53,7 +53,7 @@ end
 
 %w(pulp_workers pulp_celerybeat pulp_resource_manager).each do |svc|
   service svc do
-    action :nothing
+    action :enable
     subscribes :start, 'execute[pulp-manage-db]', :immediately
   end
 end
