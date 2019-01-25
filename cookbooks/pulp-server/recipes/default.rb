@@ -44,9 +44,8 @@ template '/etc/pulp/admin/conf.d/server.conf' do
 end
 
 execute 'pulp-manage-db' do
-  command 'pulp-manage-db'
+  command 'sudo -u apache pulp-manage-db'
   creates '/etc/pulp-db-managed'
-  user 'apache'
   action :run
   notifies :create, 'file[/etc/pulp-db-managed]', :immediately
 end
