@@ -87,13 +87,13 @@ repos.each do |repo|
   end
 
   execute 'initialize-repo-content' do
-    command "rpm repo sync --repo-id #{bag['id']}"
+    command "pulp-admin rpm repo sync --repo-id #{bag['id']} --bg"
     action :nothing
     notifies :run, execute['publish-repo'], :immediately
   end
 
   execute 'publish-repo' do
-    command "pulp-admin rpm repo publish run --repo-id #{bag['id']}"
+    command "pulp-admin rpm repo publish run --repo-id #{bag['id']} --bg"
     action :nothing
   end
 end
