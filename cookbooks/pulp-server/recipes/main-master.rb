@@ -68,7 +68,7 @@ stack_repos.each do |stack_repo|
   end
 
   execute 'clone_stack_repo' do
-    command "pulp-admin rpm repo copy rpm --from-repo-id #{bag['source']} --to-repo-id #{bag['id']}--bg"
+    command "pulp-admin rpm repo copy rpm --from-repo-id #{bag['source']} --to-repo-id #{bag['id']} --bg"
     action :nothing
     notifies :run, 'execute[publish-stack-repo]', :immediately
   end
