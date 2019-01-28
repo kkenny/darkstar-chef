@@ -1,0 +1,9 @@
+{
+  "id": "centos-7-base-updates-library",
+  "display_name": "CentOS 7 Base Updates - Library",
+  "description": "Packages for CentOS 7 Base Updates - Library",
+  "feed": "http://mirror.centos.org/centos/7/updates/x86_64",
+  "serve_http": true,
+  "serve_https": true,
+  "enabled": true
+}

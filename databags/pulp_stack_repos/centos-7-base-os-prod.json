@@ -1,0 +1,9 @@
+{
+  "id": "centos-7-base-os-production",
+  "display_name": "CentOS 7 Base OS - Production",
+  "description": "Packages for CentOS 7 Base OS - Production",
+  "feed": "centos/7/os/x86_64",
+  "serve_http": true,
+  "serve_https": true,
+  "enabled": true
+}

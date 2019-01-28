@@ -1,0 +1,9 @@
+{
+  "id": "centos-7-base-os-qa",
+  "display_name": "CentOS 7 Base OS - QA",
+  "description": "Packages for CentOS 7 Base OS - QA",
+  "source": "centos-7-base-os-2019-01-01",
+  "serve_http": true,
+  "serve_https": true,
+  "enabled": true
+}

@@ -1,0 +1,9 @@
+{
+  "id": "centos-7-base-os-2019-01-01",
+  "display_name": "CentOS 7 Base OS - release-2019.01.01",
+  "description": "Packages for CentOS 7 Base OS - Release 2019.01.01",
+  "source": "centos-7-base-os-library",
+  "serve_http": true,
+  "serve_https": true,
+  "enabled": true
+}
