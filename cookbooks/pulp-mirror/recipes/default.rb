@@ -1,1 +1,1 @@
-include_recipe 'pulp-server::default'
+include_recipe 'pulp_server::default'
