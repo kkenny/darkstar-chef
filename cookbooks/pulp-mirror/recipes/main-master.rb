@@ -16,6 +16,7 @@ repos.each do |repo|
     http bag['serve_http']
     https bag['serve_https']
     ssl_validation false
+    pulp_cert_verify false
     action [:create, :sync, :publish] if bag['enabled']
   end
 end
