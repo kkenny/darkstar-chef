@@ -77,7 +77,7 @@ bundles.each do |bundle|
 
     if !File.exist?("#{Chef::Config['file_cache_path']}/#{bag['id']}.cloned")
       execute "clone-bundle-#{bag['id']}" do
-	command "pulp-admin rpm repo copy all --from-repo-id #{bag['source']} --to-repo-id #{bag['source']}"
+	command "pulp-admin rpm repo copy all --from-repo-id #{bag['source']} --to-repo-id #{bag['id']}"
 	action :run
       end
 
@@ -120,7 +120,7 @@ env_repos.each do |env_repo|
 
     if !File.exist?("#{Chef::Config['file_cache_path']}/#{bag['id']}.cloned")
       execute "clone-bundle-#{bag['id']}" do
-	command "pulp-admin rpm repo copy all --from-repo-id #{bag['source']} --to-repo-id #{bag['source']}"
+	command "pulp-admin rpm repo copy all --from-repo-id #{bag['source']} --to-repo-id #{bag['id']}"
 	action :run
       end
 
