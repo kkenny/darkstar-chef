@@ -11,46 +11,40 @@ repos.each do |repo|
 
   # This feels *really* strange
   if bag['enabled']
-    file "#{Chef::Config['file_cache_path']}/#{bag['id']}.created" do
-      action :create
-      notifies :create, pulp_rpm_repos[bag['id']], :immediately
+    if !File.exist?("#{Chef::Config['file_cache_path']}/#{bag['id']}.sync")
+      pulp_rpm_repo bag['id'] do
+	display_name bag['display_name']
+	description bag['description']
+	feed bag['feed']
+	http bag['serve_http']
+	https bag['serve_https']
+	pulp_cert_verify false
+	relative_url bag['relative_url']
+	action [:create,:sync,:publish]
+      end
+
+      # This *assumes* the last op was good
+      file "#{Chef::Config['file_cache_path']}/#{bag['id']}.sync" do
+	action :touch
+      end
     end
 
-    file "#{Chef::Config['file_cache_path']}/#{bag['id']}.synced" do
-      action :touch if file_age("#{Chef::Config['file_cache_path']}/#{bag['id']}.sync") > node['pulp-mirror']['sync']['cadence'] || !File.exist?("#{Chef::Config['file_cache_path']}/#{bag['id']}.sync")
-      notifies :sync, pulp_rpm_repos[bag['id']], :immediately
-    end
-
-    file "#{Chef::Config['file_cache_path']}/#{bag['id']}.published" do
-      action :create
-      notifies :publish, pulp_rpm_repos[bag['id']], :immediately
+    pulp_rpm_repo bag['id'] do
+      display_name bag['display_name']
+      description bag['description']
+      feed bag['feed']
+      http bag['serve_http']
+      https bag['serve_https']
+      pulp_cert_verify false
+      relative_url bag['relative_url']
+      action :sync if file_age("#{Chef::Config['file_cache_path']}/#{bag['id']}.sync") > node['pulp-mirror']['sync']['cadence']
     end
   end
 
-  if not bag['enabled']
-    file "#{Chef::Config['file_cache_path']}/#{bag['id']}.created" do
-      action :delete
-      notifies :delete, pulp_rpm_repos[bag['id']], :immediately
-    end
 
-    file "#{Chef::Config['file_cache_path']}/#{bag['id']}.synced" do
+  if !bag['enabled']
+    pulp_rpm_repo bag['id'] do
       action :delete
     end
-
-    file "#{Chef::Config['file_cache_path']}/#{bag['id']}.published" do
-      action :delete
-    end
-  end
-
-  pulp_rpm_repo bag['id'] do
-    display_name bag['display_name']
-    description bag['description']
-    feed bag['feed']
-    http bag['serve_http']
-    https bag['serve_https']
-    pulp_cert_verify false
-    relative_url bag['relative_url']
-    action :nothing
   end
 end
-
