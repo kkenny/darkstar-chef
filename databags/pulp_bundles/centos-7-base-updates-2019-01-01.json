@@ -1,0 +1,10 @@
+{
+  "id": "centos-7-base-updates-2019-01-01",
+  "display_name": "CentOS 7 Base Updates - release-2019.01.01",
+  "description": "Packages for CentOS 7 Base Updates - Release 2019.01.01",
+  "source": "centos-7-base-updates-library",
+  "relative_url": "centos/7/updates/smfc_release-2019.01.01",
+  "serve_http": true,
+  "serve_https": false,
+  "enabled": true
+}
