@@ -1,9 +1,5 @@
 tag('pulp-main-master')
 
-def file_age(name)
-  (Time.now - File.mtime(name))/(24*3600)
-end
-
 include_recipe 'pulp-mirror::default'
 
 
@@ -33,7 +29,7 @@ repos.each do |repo|
     https bag['serve_https']
     pulp_cert_verify false
     relative_url bag['relative_url']
-    action :sync if file_age("#{Chef::Config['file_cache_path']}/#{bag['id']}.sync") > 7
+    action :sync if file_age("#{Chef::Config['file_cache_path']}/#{bag['id']}.sync") > node['pulp-mirror']['sync']['cadence']
     notifies :touch, file["#{Chef::Config['file_cache_path']}/#{bag['id']}.sync", :immediately
   end
 

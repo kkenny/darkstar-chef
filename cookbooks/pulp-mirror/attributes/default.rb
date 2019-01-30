@@ -15,3 +15,5 @@ default['pulp_server']['config']['servier']	= {
 default['pulp_server']['admin']['server']	= {
   'verify_ssl' => false
 }
+
+default['pulp-mirror']['sync']['cadence']	= 7	  #In Days
