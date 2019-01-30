@@ -3,7 +3,8 @@
   "display_name": "CentOS 7 Base OS - sandbox",
   "description": "Packages for CentOS 7 Base OS - Sandbox",
   "source": "centos-7-base-os-2019-01-01",
+  "relative_url": "centos/7/os/sandbox",
   "serve_http": true,
-  "serve_https": true,
+  "serve_https": false,
   "enabled": true
 }
