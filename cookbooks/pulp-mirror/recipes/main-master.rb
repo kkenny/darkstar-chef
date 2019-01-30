@@ -29,15 +29,17 @@ repos.each do |repo|
       end
     end
 
-    pulp_rpm_repo bag['id'] do
-      display_name bag['display_name']
-      description bag['description']
-      feed bag['feed']
-      http bag['serve_http']
-      https bag['serve_https']
-      pulp_cert_verify false
-      relative_url bag['relative_url']
-      action :sync if file_age("#{Chef::Config['file_cache_path']}/#{bag['id']}.sync") > node['pulp-mirror']['sync']['cadence']
+    if File.exist?("#{Chef::Config['file_cache_path']}/#{bag['id']}.sync")
+      pulp_rpm_repo bag['id'] do
+	display_name bag['display_name']
+	description bag['description']
+	feed bag['feed']
+	http bag['serve_http']
+	https bag['serve_https']
+	pulp_cert_verify false
+	relative_url bag['relative_url']
+	action :sync if file_age("#{Chef::Config['file_cache_path']}/#{bag['id']}.sync") > node['pulp-mirror']['sync']['cadence']
+      end
     end
   end
 
