@@ -15,6 +15,7 @@ repos.each do |repo|
     feed bag['feed']
     http bag['serve_http']
     https bag['serve_https']
+    ssl_validation false
     action [:create, :sync, :publish] if bag['enabled']
   end
 end
