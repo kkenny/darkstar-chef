@@ -4,6 +4,6 @@
   "description": "Packages for CentOS 7 Base OS - Library",
   "feed": "http://mirror.centos.org/centos/7/os/x86_64",
   "serve_http": true,
-  "serve_https": true,
+  "serve_https": false,
   "enabled": true
 }
