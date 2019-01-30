@@ -66,7 +66,7 @@ bundles.each do |bundle|
 	https bag['serve_https']
 	pulp_cert_verify false
 	relative_url bag['relative_url']
-	action [:create,:publish]
+	action :create
       end
 
       # This *assumes* the last op was good
@@ -79,6 +79,16 @@ bundles.each do |bundle|
       execute "clone-bundle-#{bag['id']}" do
 	command "pulp-admin rpm repo copy all --from-repo-id #{bag['source']} --to-repo-id #{bag['id']}"
 	action :run
+      end
+
+      pulp_rpm_repo bag['id'] do
+	display_name bag['display_name']
+	description bag['description']
+	http bag['serve_http']
+	https bag['serve_https']
+	pulp_cert_verify false
+	relative_url bag['relative_url']
+	action :publish
       end
 
       # This *assumes* the last op was good
@@ -109,7 +119,7 @@ env_repos.each do |env_repo|
 	https bag['serve_https']
 	pulp_cert_verify false
 	relative_url bag['relative_url']
-	action [:create,:publish]
+	action [:create]
       end
 
       # This *assumes* the last op was good
@@ -122,6 +132,16 @@ env_repos.each do |env_repo|
       execute "clone-bundle-#{bag['id']}" do
 	command "pulp-admin rpm repo copy all --from-repo-id #{bag['source']} --to-repo-id #{bag['id']}"
 	action :run
+      end
+
+      pulp_rpm_repo bag['id'] do
+	display_name bag['display_name']
+	description bag['description']
+	http bag['serve_http']
+	https bag['serve_https']
+	pulp_cert_verify false
+	relative_url bag['relative_url']
+	action [:publish]
       end
 
       # This *assumes* the last op was good
