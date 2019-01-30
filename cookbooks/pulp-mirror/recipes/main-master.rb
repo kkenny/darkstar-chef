@@ -1,5 +1,9 @@
 tag('pulp-main-master')
 
+def file_age(name)
+  (Time.now - File.mtime(name))/(24*3600)
+end
+
 include_recipe 'pulp-mirror::default'
 
 
@@ -15,12 +19,43 @@ repos.each do |repo|
     feed bag['feed']
     http bag['serve_http']
     https bag['serve_https']
-    ssl_validation false
     pulp_cert_verify false
-    action [:create, :sync, :publish] if bag['enabled']
+    relative_url bag['relative_url']
+    action [:create, :sync] if bag['enabled']
+    notifies :touch, file["#{Chef::Config['file_cache_path']}/#{bag['id']}.sync", :immediately
+  end
+
+  pulp_rpm_repo bag['id'] do
+    display_name bag['display_name']
+    description bag['description']
+    feed bag['feed']
+    http bag['serve_http']
+    https bag['serve_https']
+    pulp_cert_verify false
+    relative_url bag['relative_url']
+    action :sync if file_age("#{Chef::Config['file_cache_path']}/#{bag['id']}.sync") > 7
+    notifies :touch, file["#{Chef::Config['file_cache_path']}/#{bag['id']}.sync", :immediately
+  end
+
+  pulp_rpm_repo bag['id'] do
+    display_name bag['display_name']
+    description bag['description']
+    feed bag['feed']
+    http bag['serve_http']
+    https bag['serve_https']
+    pulp_cert_verify false
+    relative_url bag['relative_url']
+    action :publish if bag['enabled']
+    not_if { File.exist?("#{Chef::Config['file_cache_path']}/#{bag['id']}.published") }
+    notifies :touch, file["#{Chef::Config['file_cache_path']}/#{bag['id']}.published", :immediately
+  end
+
+  file "#{Chef::Config['file_cache_path']}/#{bag['id']}.sync" do
+    action :nothing
+  end
+
+  file "#{Chef::Config['file_cache_path']}/#{bag['id']}.published" do
+    action :nothing
   end
 end
-
-
-
 
