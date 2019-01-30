@@ -18,7 +18,7 @@ repos.each do |repo|
     pulp_cert_verify false
     relative_url bag['relative_url']
     action [:create, :sync] if bag['enabled']
-    notifies :touch, file["#{Chef::Config['file_cache_path']}/#{bag['id']}.sync", :immediately
+    notifies :touch, file["#{Chef::Config['file_cache_path']}/#{bag['id']}.sync"], :immediately
   end
 
   pulp_rpm_repo bag['id'] do
@@ -30,7 +30,7 @@ repos.each do |repo|
     pulp_cert_verify false
     relative_url bag['relative_url']
     action :sync if file_age("#{Chef::Config['file_cache_path']}/#{bag['id']}.sync") > node['pulp-mirror']['sync']['cadence']
-    notifies :touch, file["#{Chef::Config['file_cache_path']}/#{bag['id']}.sync", :immediately
+    notifies :touch, file["#{Chef::Config['file_cache_path']}/#{bag['id']}.sync"], :immediately
   end
 
   pulp_rpm_repo bag['id'] do
@@ -43,7 +43,7 @@ repos.each do |repo|
     relative_url bag['relative_url']
     action :publish if bag['enabled']
     not_if { File.exist?("#{Chef::Config['file_cache_path']}/#{bag['id']}.published") }
-    notifies :touch, file["#{Chef::Config['file_cache_path']}/#{bag['id']}.published", :immediately
+    notifies :touch, file["#{Chef::Config['file_cache_path']}/#{bag['id']}.published"], :immediately
   end
 
   file "#{Chef::Config['file_cache_path']}/#{bag['id']}.sync" do
