@@ -17,7 +17,7 @@ repos.each do |repo|
     end
 
     file "#{Chef::Config['file_cache_path']}/#{bag['id']}.synced" do
-      action :touch if file_age("#{Chef::Config['file_cache_path']}/#{bag['id']}.sync") > node['pulp-mirror']['sync']['cadence'] || not File.exist?("#{Chef::Config['file_cache_path']}/#{bag['id']}.sync")
+      action :touch if file_age("#{Chef::Config['file_cache_path']}/#{bag['id']}.sync") > node['pulp-mirror']['sync']['cadence'] || !File.exist?("#{Chef::Config['file_cache_path']}/#{bag['id']}.sync")
       notifies :sync, pulp_rpm_repos[bag['id']], :immediately
     end
 
