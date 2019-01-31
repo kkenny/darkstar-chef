@@ -3,7 +3,7 @@
   "display_name": "CentOS 7 Base OS - Production",
   "description": "Packages for CentOS 7 Base OS - Production",
   "source": "centos-7-base-os-2019-01-01",
-  "relative_url": "centos/7/os/production",
+  "relative_url": "production/centos/7/os",
   "serve_http": true,
   "serve_https": false,
   "enabled": true
