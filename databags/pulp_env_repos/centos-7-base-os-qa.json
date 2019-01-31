@@ -2,7 +2,7 @@
   "id": "centos-7-base-os-qa",
   "display_name": "CentOS 7 Base OS - QA",
   "description": "Packages for CentOS 7 Base OS - QA",
-  "source": "centos-7-base-os-2019-01-01",
+  "source": "centos-7-base-os-2019-02-01",
   "relative_url": "qa/centos/7/os/x86_64",
   "serve_http": true,
   "serve_https": false,
