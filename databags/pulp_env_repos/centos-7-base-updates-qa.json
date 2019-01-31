@@ -3,7 +3,7 @@
   "display_name": "CentOS 7 Base Updates - QA",
   "description": "Packages for CentOS 7 Base Updates - QA",
   "source": "centos-7-base-updates-2019-01-01",
-  "relative_url": "qa/centos/7/updates",
+  "relative_url": "qa/centos/7/updates/x86_64",
   "serve_http": true,
   "serve_https": false,
   "enabled": true

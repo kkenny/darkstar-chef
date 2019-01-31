@@ -3,7 +3,7 @@
   "display_name": "CentOS 7 Base OS - QA",
   "description": "Packages for CentOS 7 Base OS - QA",
   "source": "centos-7-base-os-2019-01-01",
-  "relative_url": "qa/centos/7/os",
+  "relative_url": "qa/centos/7/os/x86_64",
   "serve_http": true,
   "serve_https": false,
   "enabled": true
