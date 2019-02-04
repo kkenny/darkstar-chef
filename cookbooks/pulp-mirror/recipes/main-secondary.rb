@@ -17,7 +17,7 @@ env_repos.each do |env_repo|
       pulp_rpm_repo bag['id'] do
 	display_name bag['display_name']
 	description bag['description']
-	feed 'http://' + pulp_master.first['ipaddress'] + '/pulp/repos/' + bag['relative_url']
+	feed 'http://' + pulp_master.first['network']['interfaces']['eth1']['addresses'].keys[1] + '/pulp/repos/' + bag['relative_url']
 	http bag['serve_http']
 	https bag['serve_https']
 	pulp_cert_verify false
@@ -34,7 +34,7 @@ env_repos.each do |env_repo|
       pulp_rpm_repo bag['id'] do
         display_name bag['display_name']
         description bag['description']
-	feed 'http://' + pulp_master.first['ipaddress'] + '/pulp/repos/' + bag['relative_url']
+	feed 'http://' + pulp_master.first['network']['interfaces']['eth1']['addresses'].keys[1] + '/pulp/repos/' + bag['relative_url']
         http bag['serve_http']
         https bag['serve_https']
         pulp_cert_verify false
