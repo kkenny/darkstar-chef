@@ -1,0 +1,8 @@
+- name: default
+  run_list:
+  - recipe[reposync]
+  attributes:
+- name: provider
+  run_list:
+  - recipe[test-provider]
+  attributes:

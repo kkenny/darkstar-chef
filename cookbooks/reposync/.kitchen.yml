@@ -1,0 +1,26 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+
+  attributes:
+    authorization:
+      sudo:
+        users:
+          - vagrant
+        passwordless: true
+        include_sudoers_d: true
+
+platforms:
+- name: centos-6.9
+  transport:
+    name: speedy_ssh
+
+- name: centos-7.3
+  transport:
+    name: speedy_ssh
+
+suites:
+<%= require 'erubis'; Erubis::Eruby.new(File.read('.kitchen_suites.yml')).evaluate if File.exists?('.kitchen_suites.yml') %>
