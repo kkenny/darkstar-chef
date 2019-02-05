@@ -1,7 +1,7 @@
 include_recipe 'haproxy::default'
 
 
-webservers = search(:node, 'tags:pulp-main-secondary')
+webservers = search(:node, 'tags:yum-mirror')
 
 template '/etc/haproxy/haproxy.cfg' do
   source 'haproxy.cfg.erb'
