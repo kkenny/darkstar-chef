@@ -1,5 +1,11 @@
 tag('yum-mirror')
 
+package 'httpd'
+
+service 'httpd' do
+  action [:start,:enable]
+end
+
 pulp_master = search(:node, 'tags:pulp-main-master')
 
 env_repos = data_bag('pulp_env_repos')
