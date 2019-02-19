@@ -1,3 +1,11 @@
+yum_repository 'epel-release' do
+  description 'Extra Packages for Enterprise Linux 7 - $basearch'
+  baseurl     node['pulp_server']['epel_baseurl']
+  gpgkey      node['pulp_server']['epel_gpgkey']
+  gpgcheck    true
+  action      :create
+end
+
 include_recipe 'pulp_server::default'
 
 execute 'pulp-gen-key-pair' do
