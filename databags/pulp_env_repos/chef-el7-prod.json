@@ -1,0 +1,10 @@
+{
+  "id": "chef-el7-production",
+  "display_name": "Chef el7 - Production",
+  "description": "Packages for Chef on EL7 - Production",
+  "source": "chef-el7-2019-02-01",
+  "relative_url": "production/chef/el/7/x86_64",
+  "serve_http": true,
+  "serve_https": false,
+  "enabled": true
+}

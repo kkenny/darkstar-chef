@@ -1,0 +1,10 @@
+{
+  "id": "chef-el6-sandbox",
+  "display_name": "Chef el6 - Sandbox",
+  "description": "Packages for Chef on EL6 - Sandbox",
+  "source": "chef-el6-2019-02-01",
+  "relative_url": "sandbox/chef/el/6/x86_64",
+  "serve_http": true,
+  "serve_https": false,
+  "enabled": true
+}
