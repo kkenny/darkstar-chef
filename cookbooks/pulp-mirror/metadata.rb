@@ -4,7 +4,7 @@ maintainer_email 'kameron@thelinux.pro'
 license 'All Rights Reserved'
 description 'Installs/Configures pulp'
 long_description 'Installs/Configures pulp'
-version '0.1.1'
+version '0.1.2'
 chef_version '>= 13.0'
 
 depends 'pulp_server'

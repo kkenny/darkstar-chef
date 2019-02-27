@@ -47,6 +47,7 @@ repos.each do |repo|
   if !bag['enabled']
     pulp_rpm_repo bag['id'] do
       action :delete
+      only_if "pulp-admin rpm repo list #{bag['id']}"
     end
   end
 end
