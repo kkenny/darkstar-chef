@@ -95,6 +95,7 @@ bundles.each do |bundle|
   if !bag['enabled']
     pulp_rpm_repo bag['id'] do
       action :delete
+      only_if "pulp-admin rpm repo list #{bag['id']}"
     end
   end
 end
@@ -148,6 +149,7 @@ env_repos.each do |env_repo|
   if !bag['enabled']
     pulp_rpm_repo bag['id'] do
       action :delete
+      only_if "pulp-admin rpm repo list #{bag['id']}"
     end
   end
 end
