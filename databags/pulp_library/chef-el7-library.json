@@ -1,0 +1,10 @@
+{
+  "id": "chef-el7-library",
+  "display_name": "Chef el7 - Library",
+  "description": "Packages for CentOS 7 Chef - Library",
+  "feed": "https://packages.chef.io/repos/yum/stable/el/7/x86_64/",
+  "relative_url": "library/chef/el/7/x86_64",
+  "serve_http": true,
+  "serve_https": false,
+  "enabled": true
+}

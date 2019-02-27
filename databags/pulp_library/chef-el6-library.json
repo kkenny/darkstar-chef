@@ -1,0 +1,10 @@
+{
+  "id": "chef-el6-library",
+  "display_name": "Chef el6 - Library",
+  "description": "Packages for CentOS 6 Chef - Library",
+  "feed": "https://packages.chef.io/repos/yum/stable/el/6/x86_64/",
+  "relative_url": "library/chef/el/6/x86_64",
+  "serve_http": true,
+  "serve_https": false,
+  "enabled": true
+}

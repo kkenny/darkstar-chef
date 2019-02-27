@@ -1,0 +1,10 @@
+{
+  "id": "chef-el7-2019-02-01",
+  "display_name": "Chef EL7 - release-2019.02.01",
+  "description": "Packages for Chef EL7 - Release 2019.02.01",
+  "source": "chef-el7-library",
+  "relative_url": "sfmc_release-2019_02_01/chef/el/7/x86_64",
+  "serve_http": true,
+  "serve_https": false,
+  "enabled": true
+}
