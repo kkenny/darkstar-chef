@@ -90,6 +90,7 @@ bundles.each do |bundle|
     relative_url bag['relative_url']
     action :publish
     only_if "pulp-admin rpm repo list --detail --repo-id #{bag['id']} | grep 'Last Publish' | grep 'None'"
+    only_if bag['enabled']
   end
 
   if !bag['enabled']
@@ -138,11 +139,13 @@ env_repos.each do |env_repo|
       pulp_cert_verify false
       relative_url bag['relative_url']
       action :publish
+      only_if bag['enabled']
     end
 
     # This *assumes* the last op was good
     file "#{Chef::Config['file_cache_path']}/#{bag['source']}_#{bag['id']}.published" do
       action :touch
+      only_if bag['enabled']
     end
   end
 
